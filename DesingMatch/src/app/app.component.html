@@ -1,0 +1,49 @@
+<header class="h-100">
+    <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark   mdb-color darken-2 crolling-navbar intro-fixed-nav" [containerInside]="false">
+        <mdb-navbar-brand>
+            <a class="logo navbar-brand" href="#">
+                <h3> <strong>DesignMatch </strong> </h3>
+            </a>
+        </mdb-navbar-brand>
+        <links>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item waves-light" mdbWavesEffect>
+                    <a class="nav-link" [routerLink]="['']"><strong>Inicio</strong>  </a>
+                </li>
+                <li class="nav-item waves-light" mdbWavesEffect>
+                    <a class="nav-link"><strong>recientes</strong></a>
+                </li>
+                <li class="nav-item waves-light" mdbWavesEffect>
+                    <a class="nav-link"><strong>Populares</strong></a>
+                </li>
+                <li class="nav-item waves-light" mdbWavesEffect>
+                    <a class="nav-link"><strong>Conocenos</strong></a>
+                </li>
+                <li class="nav-item waves-light" mdbWavesEffect>
+                    <a class="nav-link"><strong>Contactanos</strong></a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+                <li class="nav-item dropdown btn-group" dropdown>
+                    <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect [hidden]="showPerfil">
+                        <i class="fas fa-user"></i> Cuenta
+                    </a>
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item">Ingresar </a>
+                        <a class="dropdown-item" [routerLink]="['/register']" [fragment]="'SRegister'">Registrate</a>
+                    </div>
+                </li>
+            </ul>
+        </links>
+    </mdb-navbar>
+</header>
+<!--Main Layout-->
+<main class="text-center ">
+    <router-outlet></router-outlet>
+</main>
+<footer class="page-footer font-small black">
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:Daniel lopez
+        <a href="https://github.com/daniellopezj01">github</a>
+    </div>
+</footer>

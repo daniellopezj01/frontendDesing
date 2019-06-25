@@ -1,0 +1,38 @@
+.view {
+    background: url("https://cdn.pixabay.com/index/2019/06/20/10-58-01-525_1440x480.jpg")no-repeat center center;
+    background-size: cover;
+    filter: blur(6px);
+    height: 100vh;
+    position: relative;
+}
+
+.sobrepone {
+    background-color: white;
+    position: absolute;
+    align-items: center;
+    top: 15%;
+    color: black;
+}
+
+.example-container>* {
+    width: 100%;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.example-container>* {
+    width: 100%;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
