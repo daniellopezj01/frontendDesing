@@ -11,12 +11,19 @@ import { MaterialModule } from './material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { PerfilEmpresaComponent } from './perfil-empresa/perfil-empresa.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     HomeComponent,
+    LoginComponent,
+    ClienteComponent,
+    PerfilEmpresaComponent,
   ],
   imports: [ 
     BrowserModule,
@@ -28,6 +35,10 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     MaterialModule,
     LayoutModule,
+    HttpClientModule
+  ],
+  entryComponents:[
+    LoginComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
