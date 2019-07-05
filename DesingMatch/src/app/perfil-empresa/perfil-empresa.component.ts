@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Empresa } from '../models/empresa';
-
+import { EmpresaService } from '../services/empresa.service';
+import { environment } from './../../environments/environment.prod';
 @Component({
   selector: 'app-perfil-empresa',
   templateUrl: './perfil-empresa.component.html',
@@ -9,9 +9,12 @@ import { Empresa } from '../models/empresa';
 export class PerfilEmpresaComponent implements OnInit {
   n: number;
   object: any;
+  listProject: any[];
+  showprojects: boolean;
+  env = environment;
 
-  constructor() {
-
+  constructor(private service: EmpresaService) {
+    console.log("ruta de mi perfil")
   }
 
   ngOnInit() {
@@ -23,6 +26,7 @@ export class PerfilEmpresaComponent implements OnInit {
       this.n = JSON.parse(sessionStorage.getItem('n'));
       if (this.n == 1) {
         sessionStorage.setItem('n', JSON.stringify(2));
+        this.env.changeVar=true;
         location.reload();
       }
     }
@@ -30,5 +34,11 @@ export class PerfilEmpresaComponent implements OnInit {
       this.object = JSON.parse(sessionStorage.getItem('emp'));
       console.log(this.object[0].nombre_empresa);
     }
+    this.service.projects(this.object[0].id_empresa).subscribe(res => {
+      if (res.responseCode == 200) {
+        this.showprojects = true;
+        this.listProject = res.object;
+      }
+    });
   }
 }

@@ -35,6 +35,14 @@ export class EmpresaService {
         return this.http.post<RestResponse>("http://localhost:3000/login", object);
     }
 
+    public projects(value: Number): Observable<RestResponse> {
+        return this.http.get<RestResponse>("http://localhost:3000/showprojects/"+ value);
+    }
+
+    
+    public siteCOmpany(url: String): Observable<RestResponse> {
+        return this.http.get<RestResponse>("http://localhost:3000/"+ url);
+    }
 
     public maxId(): Observable<Number> {
         return this.http.get<Number>("http://localhost:3000/maxId");

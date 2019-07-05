@@ -1,3 +1,4 @@
+import { DitecompanyComponent } from './ditecompany/ditecompany.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -7,9 +8,14 @@ import { PerfilEmpresaComponent } from './perfil-empresa/perfil-empresa.componen
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'cliente/:url', component: ClienteComponent },
-    { path: 'miPerfil', component: PerfilEmpresaComponent },
+    { path: 'register', component: RegisterComponent, },
+    {
+        path: 'cliente/:url', component: ClienteComponent,
+        children: [
+            { path: 'miPerfil', component: PerfilEmpresaComponent, },
+           
+        ]
+    },
 ];
 
 @NgModule({
@@ -18,7 +24,7 @@ const routes: Routes = [
             scrollPositionRestoration: 'enabled',
             anchorScrolling: 'enabled',
             scrollOffset: [0, 53]
-        }
+        },
     )
     ],
     exports: [RouterModule]

@@ -1,4 +1,4 @@
-import { Router, RouterModule } from '@angular/router';
+import {  RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,7 +15,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { PerfilEmpresaComponent } from './perfil-empresa/perfil-empresa.component';
-
+import { DitecompanyComponent } from './ditecompany/ditecompany.component';
+import { APP_BASE_HREF } from '@angular/common';
+import { ContainerComponent } from './container/container.component';
+import { CommonModule }   from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +27,8 @@ import { PerfilEmpresaComponent } from './perfil-empresa/perfil-empresa.componen
     LoginComponent,
     ClienteComponent,
     PerfilEmpresaComponent,
+    DitecompanyComponent,
+    ContainerComponent,
   ],
   imports: [ 
     BrowserModule,
@@ -35,12 +40,13 @@ import { PerfilEmpresaComponent } from './perfil-empresa/perfil-empresa.componen
     ReactiveFormsModule,
     MaterialModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
   ],
   entryComponents:[
     LoginComponent
   ],
-  providers: [],
+  providers: [{provide:APP_BASE_HREF,useValue:''}],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })

@@ -2,12 +2,10 @@
     <div class="full-bg-img">
         <div class="mask  flex-center">
             <div class="container text-center wow fadeInUp estilo">
-
             </div>
         </div>
     </div>
 </div>
-
 
 <div class="container">
     <div class="titulo">
@@ -20,9 +18,56 @@
     </div>
     <br><br>
     <div class="proyectos">
-        <div class="titulo">
-            <h3><strong><b> mis proyectos</b> </strong></h3>
+        <div class="row">
+            <div class="p-4 mproject col-md-9" style="text-align: left">
+                <h3><strong><b> mis proyectos</b> </strong></h3>
+            </div>
+            <div class=" col-md-3" style="text-align:right">
+                <button mdbBtn type="button" color="dark-green" mdbWavesEffect><strong> nuevo Proyecto </strong></button>
+            </div>
         </div>
+
+        <div class="emptyproject" [hidden]="showprojects">
+            <mdb-card>
+                <mdb-card-body>
+                    <h4> <strong> <b> Aun no tienes proyectos, Crea el primero </b></strong></h4>
+                </mdb-card-body>
+            </mdb-card>
+        </div>
+        <br>
+        <br>
+    </div>
+    <div class="proyectos" [hidden]="!showprojects" *ngFor="let item of listProject">
+        <mdb-card class="text-center">
+
+            <mdb-card-body>
+                <mdb-card-title>
+                    <h4>{{item.nombre_proyecto}}</h4>
+                </mdb-card-title>
+                <mdb-card-text>
+                    <h5> {{item.descripcion}}</h5>
+                </mdb-card-text>
+                <br>
+                <div class="row flex-center">
+
+                    <div style="padding-right: 30px"> <button mat-fab class="btn-primary">
+                                <mat-icon>toc</mat-icon>
+                            </button>
+                    </div>
+                    <div style="padding-right: 30px">
+                        <button mat-fab class="btn-warning">
+                                    <mat-icon>update</mat-icon>
+                    </button>
+                    </div>
+                    <div style="padding-right: 30px">
+                        <button mat-fab class="btn-danger">
+                                <mat-icon>delete_forever</mat-icon>
+                    </button>
+                    </div>
+                </div>
+            </mdb-card-body>
+            <br>
+        </mdb-card>
         <br><br>
     </div>
 </div>
