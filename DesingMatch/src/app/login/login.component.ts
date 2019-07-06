@@ -1,14 +1,14 @@
 
-import { RegisterComponent } from './../register/register.component';
 import { HttpClient } from '@angular/common/http';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { Component, OnInit, ViewChild ,Inject, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, FormGroupDirective, NgForm, Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { Injectable,Output, EventEmitter } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { EmpresaService } from '../services/empresa.service';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { environment } from './../../environments/environment.prod';
+import { ClienteComponent } from '../cliente/cliente.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -25,8 +25,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 @Injectable()
 export class LoginComponent implements OnInit {
-  
-  @Output() public childEvent =  new  EventEmitter();
+
   registerForm: FormGroup;
   submitted = false;
   email: String;
@@ -34,13 +33,9 @@ export class LoginComponent implements OnInit {
   password: String;
   env = environment;
 
-  constructor(private http: HttpClient, private service: EmpresaService, private _router:Router, private formBuilder: FormBuilder,
+  constructor(private http: HttpClient, private service: EmpresaService, private _router: Router, private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<LoginComponent>,
-    @Inject(MAT_DIALOG_DATA) public datad: RegisterComponent) {
-
-    // if (sessionStorage.getItem('obj')) {
-    // this.object = JSON.parse(sessionStorage.getItem('obj'));
-    // }
+    @Inject(MAT_DIALOG_DATA) public data: ClienteComponent) {
   }
 
   get f() { return this.registerForm.controls; }
@@ -61,9 +56,9 @@ export class LoginComponent implements OnInit {
       if (res.responseCode == 200) {
         sessionStorage.setItem('emp', JSON.stringify(res.object));
         sessionStorage.setItem('showperfil', JSON.stringify(true));
-        sessionStorage.setItem('n', JSON.stringify(1));
-        this.dialogRef.close();
         alert(`bienvenido señor@ usuario`);
+        this.data.showPerfil = true;
+        this.dialogRef.close([{ showPerfil: true }]);
         this.url = sessionStorage.getItem('url')
         this._router.navigate([`/cliente/${this.url.replace(/['"]+/g, '')}/miPerfil`]);
       } else {
@@ -80,5 +75,9 @@ export class LoginComponent implements OnInit {
   cleaninput() {
     this.email = "";
     this.password = "";
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }

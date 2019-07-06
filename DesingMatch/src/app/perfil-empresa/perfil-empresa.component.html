@@ -23,7 +23,7 @@
                 <h3><strong><b> mis proyectos</b> </strong></h3>
             </div>
             <div class=" col-md-3" style="text-align:right">
-                <button mdbBtn type="button" color="dark-green" mdbWavesEffect><strong> nuevo Proyecto </strong></button>
+                <button mdbBtn type="button" color="dark-green" (click)="create()" mdbWavesEffect><strong> nuevo Proyecto </strong></button>
             </div>
         </div>
 
@@ -50,16 +50,17 @@
                 <br>
                 <div class="row flex-center">
 
-                    <div style="padding-right: 30px"> <button mat-fab class="btn-primary">
-                                <mat-icon>toc</mat-icon>
+                    <div style="padding-right: 30px"> <button mat-fab class="btn-primary" matTooltip="Ver diseños" matTooltipClass="example-tooltip-red">
+                                 
+                        <mat-icon>toc</mat-icon>
                             </button>
                     </div>
                     <div style="padding-right: 30px">
-                        <button mat-fab class="btn-warning">
+                        <button mat-fab class="btn-warning" matTooltip="actualizar" matTooltipClass="example-tooltip-red" (click)="update(item)">
                                     <mat-icon>update</mat-icon>
                     </button>
                     </div>
-                    <div style="padding-right: 30px">
+                    <div style="padding-right: 30px" matTooltip="Eliminar" matTooltipClass="example-tooltip-red">
                         <button mat-fab class="btn-danger">
                                 <mat-icon>delete_forever</mat-icon>
                     </button>

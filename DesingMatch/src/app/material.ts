@@ -10,6 +10,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
 @NgModule({
     imports: [MatButtonModule,
         MatToolbarModule,
@@ -21,7 +22,8 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatMenuModule,
         MatListModule,
         MatFormFieldModule,
-        MatDialogModule
+        MatDialogModule,
+        MatTooltipModule
     ],
     exports: [MatButtonModule,
         MatToolbarModule,
@@ -33,7 +35,8 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatMenuModule,
         MatListModule,
         MatFormFieldModule,
-        MatDialogModule
+        MatDialogModule,
+        MatTooltipModule
     ]
 })
 export class MaterialModule { }

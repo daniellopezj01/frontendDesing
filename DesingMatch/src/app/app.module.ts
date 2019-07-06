@@ -19,6 +19,7 @@ import { DitecompanyComponent } from './ditecompany/ditecompany.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { ContainerComponent } from './container/container.component';
 import { CommonModule }   from '@angular/common';
+import { CreateProjectComponent } from './create-project/create-project.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { CommonModule }   from '@angular/common';
     PerfilEmpresaComponent,
     DitecompanyComponent,
     ContainerComponent,
+    CreateProjectComponent,
   ],
   imports: [ 
     BrowserModule,
@@ -44,7 +46,7 @@ import { CommonModule }   from '@angular/common';
     CommonModule,
   ],
   entryComponents:[
-    LoginComponent
+    LoginComponent,CreateProjectComponent
   ],
   providers: [{provide:APP_BASE_HREF,useValue:''}],
   bootstrap: [AppComponent],

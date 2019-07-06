@@ -1,20 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { CreateProjectComponent } from './../create-project/create-project.component';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { EmpresaService } from '../services/empresa.service';
 import { environment } from './../../environments/environment.prod';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+export interface DialogData {
+  option: number;
+}
+
 @Component({
   selector: 'app-perfil-empresa',
   templateUrl: './perfil-empresa.component.html',
-  styleUrls: ['./perfil-empresa.component.scss']
+  styleUrls: ['./perfil-empresa.component.scss'],
 })
+
+
+@Injectable()
 export class PerfilEmpresaComponent implements OnInit {
-  n: number;
+  
+  option: number;
   object: any;
   listProject: any[];
   showprojects: boolean;
   env = environment;
+  name: any;
+  actualproject:any;
 
-  constructor(private service: EmpresaService) {
-    console.log("ruta de mi perfil")
+  constructor(private service: EmpresaService, private dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -22,23 +34,35 @@ export class PerfilEmpresaComponent implements OnInit {
   }
 
   loadinfo() {
-    if (sessionStorage.getItem('n')) {
-      this.n = JSON.parse(sessionStorage.getItem('n'));
-      if (this.n == 1) {
-        sessionStorage.setItem('n', JSON.stringify(2));
-        this.env.changeVar=true;
-        location.reload();
-      }
-    }
     if (sessionStorage.getItem('emp')) {
       this.object = JSON.parse(sessionStorage.getItem('emp'));
-      console.log(this.object[0].nombre_empresa);
     }
     this.service.projects(this.object[0].id_empresa).subscribe(res => {
       if (res.responseCode == 200) {
         this.showprojects = true;
         this.listProject = res.object;
       }
+    });
+  }
+
+  create(): void {
+    this.option = 1;
+    const dialogRef = this.dialog.open(CreateProjectComponent, {
+      data: { name: this.option }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.loadinfo()
+    });
+  }
+
+  update(project:Object): void {
+    this.option = 2;
+    const dialogRef = this.dialog.open(CreateProjectComponent, {
+      data: { name: this.option , actualproject:project}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.loadinfo()
     });
   }
 }
