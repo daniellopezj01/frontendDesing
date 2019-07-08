@@ -20,6 +20,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { ContainerComponent } from './container/container.component';
 import { CommonModule }   from '@angular/common';
 import { CreateProjectComponent } from './create-project/create-project.component';
+import { ProjectDesingComponent } from './project-desing/project-desing.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { CreateProjectComponent } from './create-project/create-project.componen
     DitecompanyComponent,
     ContainerComponent,
     CreateProjectComponent,
+    ProjectDesingComponent,
   ],
   imports: [ 
     BrowserModule,

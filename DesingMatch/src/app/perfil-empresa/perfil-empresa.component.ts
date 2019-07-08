@@ -1,8 +1,9 @@
 import { CreateProjectComponent } from './../create-project/create-project.component';
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, ViewEncapsulation } from '@angular/core';
 import { EmpresaService } from '../services/empresa.service';
 import { environment } from './../../environments/environment.prod';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ProyectoService } from '../services/proyecto.service';
 
 export interface DialogData {
   option: number;
@@ -12,21 +13,22 @@ export interface DialogData {
   selector: 'app-perfil-empresa',
   templateUrl: './perfil-empresa.component.html',
   styleUrls: ['./perfil-empresa.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 
 
 @Injectable()
 export class PerfilEmpresaComponent implements OnInit {
-  
+
   option: number;
   object: any;
   listProject: any[];
   showprojects: boolean;
   env = environment;
   name: any;
-  actualproject:any;
+  actualproject: any;
 
-  constructor(private service: EmpresaService, private dialog: MatDialog) {
+  constructor(private service: ProyectoService, private dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -41,6 +43,8 @@ export class PerfilEmpresaComponent implements OnInit {
       if (res.responseCode == 200) {
         this.showprojects = true;
         this.listProject = res.object;
+      } else if (res.responseCode == 400) {
+        this.showprojects = false;
       }
     });
   }
@@ -55,14 +59,29 @@ export class PerfilEmpresaComponent implements OnInit {
     });
   }
 
-  update(project:Object): void {
+  update(project: Object): void {
     this.option = 2;
     const dialogRef = this.dialog.open(CreateProjectComponent, {
-      data: { name: this.option , actualproject:project}
+      data: { name: this.option, actualproject: project }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       this.loadinfo()
     });
+  }
+
+  delete(num: number) {
+    var selection = confirm("¿esta seguro de eliminar el proyecto?");
+    if (selection == true) {
+      this.service.DeleteProject(num).subscribe(res => {
+        if (res.responseCode == 200) {
+          this.loadinfo();
+          if (this.listProject.length == 0) {
+            this.showprojects = false;
+          }
+        }
+      });
+
+    }
   }
 }

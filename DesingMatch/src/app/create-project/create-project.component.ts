@@ -55,7 +55,7 @@ export class CreateProjectComponent implements OnInit {
       this.titulo = "Crear Proyecto";
       this.messageButton = "Crear";
     } else if (this.dataperfil.name == 2) {
-      this.titulo = "Actualiazr Proyecto";
+      this.titulo = "Actualizar Proyecto";
       this.proyecto = this.dataperfil.actualproject;
       this.messageButton = "Actualizar";
     }

@@ -1,11 +1,12 @@
 import { EmpresaService } from './../services/empresa.service';
-import { Component, OnInit ,Injectable} from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { environment } from './../../environments/environment.prod';
 import { LoginComponent } from '.././login/login.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Empresa } from '../models/empresa';
+import { NgLocalization } from '@angular/common';
 
 export interface DialogData {
   showPerfil: boolean;
@@ -23,6 +24,7 @@ export class ClienteComponent implements OnInit {
   nombre: string;
   showPerfil: boolean;
   datadialog: Object;
+  num: number;
 
   constructor(private active: ActivatedRoute, private dialog: MatDialog, private service: EmpresaService, private _router: Router) {
     this.env.show = false;
@@ -42,7 +44,6 @@ export class ClienteComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.datadialog = result;
-      console.log(this.datadialog[0].showPerfil);
       this.showPerfil = this.datadialog[0].showPerfil;
     });
   }
@@ -55,14 +56,14 @@ export class ClienteComponent implements OnInit {
         sessionStorage.setItem('url', JSON.stringify(this.empresa.url));
         sessionStorage.setItem('id', JSON.stringify(this.empresa.id_empresa));
       } else {
-        this._router.navigate(['']);
+        this._router.navigate(['/cliente']);
       }
     });
   }
 
   close(): void {
-    sessionStorage.clear();
-    this._router.navigate(['']);
+    sessionStorage.setItem('showperfil', JSON.stringify(false));
     this.showPerfil = false;
+    location.href = `/cliente/${this.empresa.url.replace(/['"]+/g, '')}`;
   }
 }

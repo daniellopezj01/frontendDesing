@@ -13,7 +13,7 @@ export class ProyectoService {
     constructor(private http: HttpClient) { }
 
     public projects(value: Number): Observable<RestResponse> {
-        return this.http.get<RestResponse>("http://localhost:3000/showprojects/"+ value);
+        return this.http.get<RestResponse>("http://localhost:3000/showprojects/" + value);
     }
     public saveProject(proyecto: Proyecto): Observable<RestResponse> {
         return this.http.post<RestResponse>("http://localhost:3000/showprojects", proyecto);
@@ -21,4 +21,9 @@ export class ProyectoService {
     public UpdateProject(proyecto: Proyecto): Observable<RestResponse> {
         return this.http.put<RestResponse>("http://localhost:3000/showprojects", proyecto);
     }
+
+    public DeleteProject(id: Number): Observable<RestResponse> {
+        return this.http.delete<RestResponse>("http://localhost:3000/showprojects/" + id);
+    }
+
 }

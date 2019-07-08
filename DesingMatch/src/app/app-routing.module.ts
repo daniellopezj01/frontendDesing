@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { PerfilEmpresaComponent } from './perfil-empresa/perfil-empresa.component';
+import { ProjectDesingComponent } from './project-desing/project-desing.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -13,7 +14,7 @@ const routes: Routes = [
         path: 'cliente/:url', component: ClienteComponent,
         children: [
             { path: 'miPerfil', component: PerfilEmpresaComponent, },
-           
+            { path: 'Proyectos', component: ProjectDesingComponent, }
         ]
     },
 ];

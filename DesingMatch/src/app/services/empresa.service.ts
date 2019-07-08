@@ -34,11 +34,6 @@ export class EmpresaService {
     public login(object: object): Observable<RestResponse> {
         return this.http.post<RestResponse>("http://localhost:3000/login", object);
     }
-
-    public projects(value: Number): Observable<RestResponse> {
-        return this.http.get<RestResponse>("http://localhost:3000/showprojects/"+ value);
-    }
-
     
     public siteCOmpany(url: String): Observable<RestResponse> {
         return this.http.get<RestResponse>("http://localhost:3000/"+ url);
