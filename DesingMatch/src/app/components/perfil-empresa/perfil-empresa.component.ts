@@ -1,9 +1,8 @@
 import { CreateProjectComponent } from './../create-project/create-project.component';
 import { Component, OnInit, Injectable, ViewEncapsulation } from '@angular/core';
-import { EmpresaService } from '../services/empresa.service';
-import { environment } from './../../environments/environment.prod';
+import { environment } from '../../../environments/environment.prod';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ProyectoService } from '../services/proyecto.service';
+import { ProyectoService } from '../../services/proyecto.service';
 
 export interface DialogData {
   option: number;

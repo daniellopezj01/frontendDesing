@@ -1,0 +1,45 @@
+<div style="align-items: center" class=" prin">
+    <div class=" text-center">
+        <h4 class=" w-100 font-weight-bold">Realiza tu oferta</h4>
+    </div>
+    <br>
+    <div class="container">
+        <form [formGroup]="registerForm" (ngSubmit)="publicoffer()">
+            <div class="row">
+                <div class="nombre">
+                    <input placeholder="Nombre" type="text" formControlName="nombre" class="form-control medio" [(ngModel)]="diseniador.nombre_diseniador" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+                    <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+                        <div *ngIf="f.nombre.errors.required">Nombre obligatorio</div>
+                    </div>
+                </div>
+
+                <div class="apellido">
+                    <input placeholder="Apellido" type="text" formControlName="apellido" class="form-control medio" [(ngModel)]="diseniador.apellido_diseniador" [ngClass]="{ 'is-invalid': submitted && f.apellido.errors }" />
+                    <div *ngIf="submitted && f.apellido.errors" class="invalid-feedback">
+                        <div *ngIf="f.apellido.errors.required">apellido obligatorio</div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <input placeholder="Email" type="text" formControlName="email" class="form-control" [(ngModel)]="diseniador.email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email es obligatorio</div>
+                <div *ngIf="f.email.errors.email">example@xample.com</div>
+            </div>
+            <br>
+            <input placeholder="disenio" type="file" formControlName="disenio" class="form-control" [(ngModel)]="detalle.disenio" [ngClass]="{ 'is-invalid': submitted && f.disenio.errors }" />
+            <div *ngIf="submitted && f.disenio.errors" class="invalid-feedback">
+                <div *ngIf="f.disenio.errors.required">disenio es obligatorio</div>
+            </div>
+            <br>
+            <input placeholder="precio" type="number" formControlName="precio" class="form-control" [(ngModel)]="detalle.precio" [ngClass]="{ 'is-invalid': submitted && f.precio.errors }" />
+            <div *ngIf="submitted && f.precio.errors" class="invalid-feedback">
+                <div *ngIf="f.precio.errors.required">valor obligatorio</div>
+            </div>
+            <br>
+            <div class="form-group md-8" style="text-align: center">
+                <button class="btn btn-primary">Publicar Oferta</button>
+            </div>
+        </form>
+    </div>
+</div>

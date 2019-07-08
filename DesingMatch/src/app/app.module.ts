@@ -9,18 +9,21 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material';
 import { LayoutModule } from '@angular/cdk/layout';
-import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './login/login.component';
-import { ClienteComponent } from './cliente/cliente.component';
-import { PerfilEmpresaComponent } from './perfil-empresa/perfil-empresa.component';
-import { DitecompanyComponent } from './ditecompany/ditecompany.component';
+import { LoginComponent } from './components/login/login.component';
+import { ClienteComponent } from './components/cliente/cliente.component';
+import { PerfilEmpresaComponent } from './components/perfil-empresa/perfil-empresa.component';
+import { DitecompanyComponent } from './components/ditecompany/ditecompany.component';
 import { APP_BASE_HREF } from '@angular/common';
-import { ContainerComponent } from './container/container.component';
+import { ContainerComponent } from './components/container/container.component';
 import { CommonModule }   from '@angular/common';
-import { CreateProjectComponent } from './create-project/create-project.component';
-import { ProjectDesingComponent } from './project-desing/project-desing.component';
+import { CreateProjectComponent } from './components/create-project/create-project.component';
+import { ProjectDesingComponent } from './components/project-desing/project-desing.component';
+import { DiseniosComponent } from './components/disenios/disenios.component';
+import { OfertarComponent } from './components/ofertar/ofertar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +36,8 @@ import { ProjectDesingComponent } from './project-desing/project-desing.componen
     ContainerComponent,
     CreateProjectComponent,
     ProjectDesingComponent,
+    DiseniosComponent,
+    OfertarComponent,
   ],
   imports: [ 
     BrowserModule,
@@ -48,7 +53,7 @@ import { ProjectDesingComponent } from './project-desing/project-desing.componen
     CommonModule,
   ],
   entryComponents:[
-    LoginComponent,CreateProjectComponent
+    LoginComponent,CreateProjectComponent,OfertarComponent
   ],
   providers: [{provide:APP_BASE_HREF,useValue:''}],
   bootstrap: [AppComponent],

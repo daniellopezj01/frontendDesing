@@ -5,9 +5,9 @@ import { Component, OnInit, ViewChild, Inject, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, FormGroupDirective, NgForm, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { EmpresaService } from '../services/empresa.service';
+import { EmpresaService } from '../../services/empresa.service';
 import { Router } from '@angular/router';
-import { environment } from './../../environments/environment.prod';
+import { environment } from '../../../environments/environment.prod';
 import { ClienteComponent } from '../cliente/cliente.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {

@@ -1,11 +1,11 @@
-import { DitecompanyComponent } from './ditecompany/ditecompany.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
-import { ClienteComponent } from './cliente/cliente.component';
-import { PerfilEmpresaComponent } from './perfil-empresa/perfil-empresa.component';
-import { ProjectDesingComponent } from './project-desing/project-desing.component';
+import { HomeComponent } from './components/home/home.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ClienteComponent } from './components/cliente/cliente.component';
+import { PerfilEmpresaComponent } from './components/perfil-empresa/perfil-empresa.component';
+import { ProjectDesingComponent } from './components/project-desing/project-desing.component';
+import { DiseniosComponent } from './components/disenios/disenios.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -14,7 +14,8 @@ const routes: Routes = [
         path: 'cliente/:url', component: ClienteComponent,
         children: [
             { path: 'miPerfil', component: PerfilEmpresaComponent, },
-            { path: 'Proyectos', component: ProjectDesingComponent, }
+            { path: 'Proyectos', component: ProjectDesingComponent, },
+            { path: 'diseños', component: DiseniosComponent, }
         ]
     },
 ];

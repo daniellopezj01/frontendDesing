@@ -1,5 +1,5 @@
 import { PerfilEmpresaComponent } from './../perfil-empresa/perfil-empresa.component';
-import { Proyecto } from './../models/proyecto';
+import { Proyecto } from '../../logic/proyecto';
 import { HttpClient } from '@angular/common/http';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Component, OnInit, ViewChild, Inject, Input } from '@angular/core';
@@ -7,7 +7,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { FormControl, FormGroupDirective, NgForm, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProyectoService } from '../services/proyecto.service';
+import { ProyectoService } from '../../services/proyecto.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {

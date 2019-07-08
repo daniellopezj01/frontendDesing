@@ -1,11 +1,11 @@
-import { Proyecto } from './../models/proyecto';
+import { Proyecto } from '../logic/proyecto';
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
-import { RestResponse } from './../models/RestResponse.model';
-import { Empresa } from '../models/empresa';
+import { RestResponse } from '../logic/RestResponse.model';
+import { Empresa } from '../logic/empresa';
 @Injectable({
     providedIn: 'root'
 })

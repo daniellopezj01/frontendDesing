@@ -1,11 +1,11 @@
-import { EmpresaService } from './../services/empresa.service';
+import { EmpresaService } from '../../services/empresa.service';
 import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { environment } from './../../environments/environment.prod';
+import { environment } from '../../../environments/environment.prod';
 import { LoginComponent } from '.././login/login.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Empresa } from '../models/empresa';
+import { Empresa } from '../../logic/empresa';
 import { NgLocalization } from '@angular/common';
 
 export interface DialogData {
@@ -48,11 +48,11 @@ export class ClienteComponent implements OnInit {
     });
   }
 
-
   private loadCompany(url: String) {
     this.service.siteCOmpany(url).subscribe(res => {
       if (res.responseCode == 200) {
         this.empresa = res.object[0];
+        sessionStorage.setItem('nombre', JSON.stringify(this.empresa.nombre_empresa));
         sessionStorage.setItem('url', JSON.stringify(this.empresa.url));
         sessionStorage.setItem('id', JSON.stringify(this.empresa.id_empresa));
       } else {
