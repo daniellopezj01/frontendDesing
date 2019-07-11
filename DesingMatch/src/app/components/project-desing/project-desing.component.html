@@ -6,7 +6,6 @@
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="titulo">
         <br><br>
@@ -32,10 +31,10 @@
                 <br>
                 <div class="row flex-center">
                     <div>
-                        <button mdbBtn type="button" mdbTooltip="Realizar Oferta" (click)="openOffer()" placement="bottom" color="deep-purple" mdbWavesEffect>Ofertar</button>
+                        <button mdbBtn type="button" mdbTooltip="Realizar Oferta" (click)="openOffer(item.id_proyecto)" placement="bottom" color="deep-purple" mdbWavesEffect>Ofertar</button>
                     </div>
                     <div>
-                        <button mdbBtn type="button" mdbTooltip="Ver Diseños" placement="bottom" color="dark-green" mdbWavesEffect>Diseños</button> </div>
+                        <button mdbBtn type="button" mdbTooltip="Ver Diseños" (click)="showDesing(item.id_proyecto)" placement="bottom" color="dark-green" mdbWavesEffect>Diseños</button> </div>
                 </div>
             </mdb-card-body>
             <br>

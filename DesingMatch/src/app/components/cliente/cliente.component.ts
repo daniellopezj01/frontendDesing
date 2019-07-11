@@ -6,11 +6,11 @@ import { environment } from '../../../environments/environment.prod';
 import { LoginComponent } from '.././login/login.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Empresa } from '../../logic/empresa';
-import { NgLocalization } from '@angular/common';
 
 export interface DialogData {
   showPerfil: boolean;
 }
+
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente.component.html',

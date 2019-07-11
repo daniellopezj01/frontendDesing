@@ -15,6 +15,11 @@ export class ProyectoService {
     public projects(value: Number): Observable<RestResponse> {
         return this.http.get<RestResponse>("http://localhost:3000/showprojects/" + value);
     }
+
+    public unicProjects(id: Number): Observable<RestResponse> {
+        return this.http.get<RestResponse>("http://localhost:3000/selectProject/" + id);
+    } 
+
     public saveProject(proyecto: Proyecto): Observable<RestResponse> {
         return this.http.post<RestResponse>("http://localhost:3000/showprojects", proyecto);
     }

@@ -1,4 +1,4 @@
-import { Detalle_disenio } from 'src/app/logic/detalle_disenio';
+import { Detalle_disenio } from './../logic/detalle_disenio';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -10,12 +10,15 @@ import { RestResponse } from '../logic/RestResponse.model';
 export class DetalleService {
     constructor(private http: HttpClient) { }
 
-    public saveDetailsDesing(Detalle_disenio: FormData): Observable<RestResponse> {
-        const httpHeaders = new HttpHeaders();
-        httpHeaders.append("Accept", 'application/json');
-        httpHeaders.delete("Content-Type");
-
-        return this.http.post<RestResponse>("http://localhost:3000/Desing", Detalle_disenio, { headers: httpHeaders });
+    public saveDetailsDesingimage(image: FormData): Observable<RestResponse> {
+        return this.http.post<RestResponse>("http://localhost:3000/DesingImage", image);
     }
 
+    public saveDetailsDesing(Detalle_disenio: Detalle_disenio): Observable<RestResponse> {
+        return this.http.post<RestResponse>("http://localhost:3000/Desing", Detalle_disenio);
+    }
+
+    public showDesing(id: Number): Observable<RestResponse> {
+        return this.http.get<RestResponse>("http://localhost:3000/showDesing/" + id);
+    }
 }

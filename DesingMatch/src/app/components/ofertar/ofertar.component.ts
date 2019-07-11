@@ -5,7 +5,6 @@ import { FormControl, FormGroupDirective, NgForm, Validators, FormBuilder, FormG
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Detalle_disenio } from 'src/app/logic/detalle_disenio';
 import { DetalleService } from 'src/app/services/detalle.service';
-import { HttpHeaders } from '@angular/common/http';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -43,9 +42,9 @@ export class OfertarComponent implements OnInit {
       disenio: ['', [Validators.required]],
       precio: ['', [Validators.required]],
     });
-
+    this.detalle.id_proyecto = this.data.id_proyecto;
     this.detalle.date = new Date();
-    this.detalle.status = "En proceso";
+    this.detalle.status = "p";
   }
 
   captureFile(event) {
@@ -53,20 +52,40 @@ export class OfertarComponent implements OnInit {
   }
 
   publicOffer() {
-
-    //this.submitted = true;
-    //if (this.registerForm.invalid) {
-    //  return;
-    //}
-
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
     const fd = new FormData();
     fd.append('disenio', this.selectedFile, this.selectedFile.name)
-
-    //this.detalle.disenio = this.selectedFile;
-    //console.log(this.selectedFile);
-    this.detalleService.saveDetailsDesing(fd).subscribe(res => {
-      console.log(res.message);
+    this.detalleService.saveDetailsDesingimage(fd).subscribe(res => {
+      if (res.responseCode == 200) {
+        this.detalle.disenio = res.object;
+        this.detalleService.saveDetailsDesing(this.detalle).subscribe(res => {
+          if (res.responseCode == 200) {
+            alert(res.message);
+            this.dialogRef.close();
+          } else {
+            alert(res.message);
+            this.cleaninput();
+          }
+        });
+      } else {
+        alert("se presento un problema");
+        this.cleaninput();
+      }
     });
+  }
+
+  loadobjectDetalle() {
+
+  }
+
+  cleaninput() {
+    this.detalle.nombre_diseniador = "";
+    this.detalle.nombre_diseniador = "";
+    this.detalle.email_diseniador = "";
+    this.detalle.precio = 0;
   }
 
 }

@@ -23,6 +23,7 @@ import { CreateProjectComponent } from './components/create-project/create-proje
 import { ProjectDesingComponent } from './components/project-desing/project-desing.component';
 import { DiseniosComponent } from './components/disenios/disenios.component';
 import { OfertarComponent } from './components/ofertar/ofertar.component';
+import { DisenioPublicComponent } from './components/disenio-public/disenio-public.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { OfertarComponent } from './components/ofertar/ofertar.component';
     ProjectDesingComponent,
     DiseniosComponent,
     OfertarComponent,
+    DisenioPublicComponent,
   ],
   imports: [ 
     BrowserModule,

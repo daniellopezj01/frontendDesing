@@ -1,0 +1,43 @@
+<div class="container">
+    <br> <br>
+    <br>
+    <br>
+    <div class="titulo">
+        <br><br>
+        <h2> <strong><b> Proyecto</b> </strong> {{project.nombre_proyecto}} </h2>
+    </div>
+    <br><br>
+    <div class="contenido">
+        <h4> <strong><b>{{project.descripcion}} </b></strong></h4>
+        <br><br>
+    </div>
+    <div class="" [hidden]="showDesing">
+        <mdb-card>
+            <mdb-card-body>
+                <h4> <strong> <b> Aun no hay diseños ofertados </b></strong></h4>
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+    <br>
+    <br>
+    <div class="" [hidden]="!showDesing" *ngFor="let item of listDesing">
+        <mdb-card class="col-md-6" style="float: left">
+            <mdb-card-title>
+                <div class="card-body example-card col-md-6">
+                    <img src="http://localhost:3000/loadFile/{{item.disenio}}" class="card-img-top image">
+                </div>
+            </mdb-card-title>
+            <div class="card-body" style="text-align: left">
+                <mdb-card-text>
+                    <h3> {{item.nombre_diseniador}}</h3>
+                    <h3> {{item.apellido_diseniador}}</h3>
+
+                    <h4> {{item.email_diseniador}}</h4>
+                </mdb-card-text>
+                <br>
+            </div>
+            <br>
+        </mdb-card>
+        <br><br>
+    </div>
+</div>

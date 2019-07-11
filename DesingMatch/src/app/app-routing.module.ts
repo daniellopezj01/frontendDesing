@@ -6,6 +6,7 @@ import { ClienteComponent } from './components/cliente/cliente.component';
 import { PerfilEmpresaComponent } from './components/perfil-empresa/perfil-empresa.component';
 import { ProjectDesingComponent } from './components/project-desing/project-desing.component';
 import { DiseniosComponent } from './components/disenios/disenios.component';
+import { DisenioPublicComponent } from './components/disenio-public/disenio-public.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
         children: [
             { path: 'miPerfil', component: PerfilEmpresaComponent, },
             { path: 'Proyectos', component: ProjectDesingComponent, },
+            { path: 'DiseñoPublico', component: DisenioPublicComponent, },      
             { path: 'diseños', component: DiseniosComponent, }
         ]
     },
