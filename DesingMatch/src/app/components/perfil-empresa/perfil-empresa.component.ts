@@ -3,7 +3,7 @@ import { Component, OnInit, Injectable, ViewEncapsulation } from '@angular/core'
 import { environment } from '../../../environments/environment.prod';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProyectoService } from '../../services/proyecto.service';
-
+import { Router } from '@angular/router';
 export interface DialogData {
   option: number;
 }
@@ -26,8 +26,9 @@ export class PerfilEmpresaComponent implements OnInit {
   env = environment;
   name: any;
   actualproject: any;
+  url: any;
 
-  constructor(private service: ProyectoService, private dialog: MatDialog) {
+  constructor(private service: ProyectoService, private dialog: MatDialog,private _router: Router) {
   }
 
   ngOnInit() {
@@ -37,6 +38,9 @@ export class PerfilEmpresaComponent implements OnInit {
   loadinfo() {
     if (sessionStorage.getItem('emp')) {
       this.object = JSON.parse(sessionStorage.getItem('emp'));
+    }
+    if (sessionStorage.getItem('url')) {
+      this.url = JSON.parse(sessionStorage.getItem('url'));
     }
     this.service.projects(this.object[0].id_empresa).subscribe(res => {
       if (res.responseCode == 200) {
@@ -82,5 +86,10 @@ export class PerfilEmpresaComponent implements OnInit {
       });
 
     }
+  }
+
+  showDesingAdmin(id: number): void {
+    sessionStorage.setItem('idProjectadmin', JSON.stringify(id));
+    this._router.navigate([`/cliente/${this.url.replace(/['"]+/g, '')}/DiseñosAdmin`]);
   }
 }

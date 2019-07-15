@@ -27,7 +27,7 @@
                 <div *ngIf="f.email.errors.email">example@xample.com</div>
             </div>
             <br>
-            <input #fileinput placeholder="diseño" type="file" formControlName="disenio" name="disenio" accept=".png,.jpg" class="form-control" (change)="captureFile($event)" [ngClass]="{ 'is-invalid': submitted && f.disenio.errors }" />
+            <input #fileinput placeholder="diseño" type="file" formControlName="disenio" name="disenio" accept=".png,.jpg,.jpeg" class="form-control" (change)="captureFile($event)" [ngClass]="{ 'is-invalid': submitted && f.disenio.errors }" />
             <div *ngIf="submitted && f.disenio.errors" class="invalid-feedback">
                 <div *ngIf="f.disenio.errors.required">disenio es obligatorio</div>
             </div>

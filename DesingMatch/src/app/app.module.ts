@@ -24,6 +24,7 @@ import { ProjectDesingComponent } from './components/project-desing/project-desi
 import { DiseniosComponent } from './components/disenios/disenios.component';
 import { OfertarComponent } from './components/ofertar/ofertar.component';
 import { DisenioPublicComponent } from './components/disenio-public/disenio-public.component';
+import { DisenioAdminComponent } from './components/disenio-admin/disenio-admin.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { DisenioPublicComponent } from './components/disenio-public/disenio-publ
     DiseniosComponent,
     OfertarComponent,
     DisenioPublicComponent,
+    DisenioAdminComponent,
   ],
   imports: [ 
     BrowserModule,

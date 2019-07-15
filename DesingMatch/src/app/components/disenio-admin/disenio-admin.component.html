@@ -23,8 +23,8 @@
     <div class="container" style="align-content: center" [hidden]="!showDesing" *ngFor="let item of listDesing">
         <div class=" offset-md-1 col-md-5 my-5 " style="float: left">
             <mdb-card dark="true">
-                <div style="height:  250px; width:  100%;" class=" overlay waves-light" mdbWavesEffect>
-                    <img src="http://localhost:3000/loadFile/{{item.disenio}}" class="estilosImg">
+                <div style="height:  250px; width:  100%;" class="overlay waves-light" mdbWavesEffect>
+                    <img src="http://localhost:3000/loadFile/{{item.disenio}}" class=" estilosImg">
                 </div>
                 <mdb-card-body class="elegant-color white-text">
                     <mdb-card-title>
@@ -32,7 +32,9 @@
                     </mdb-card-title>
                     <hr class="hr-light">
                     <mdb-card-text class="white-text">
-                        {{item.email_diseniador}} <br> {{item.fecha.slice(0, -14)}}
+                        <h6> <strong> <b>Precio: </b></strong> {{item.precio}}</h6> <strong> <b>Correo: </b></strong> {{item.email_diseniador}} <br> <strong> <b>fecha: </b></strong> {{item.fecha.slice(0, -14)}} <br>
+
+                        <strong> <b> Estado: </b></strong> {{item.estado}}
                     </mdb-card-text>
                 </mdb-card-body>
             </mdb-card>

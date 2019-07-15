@@ -7,8 +7,10 @@ import { PerfilEmpresaComponent } from './components/perfil-empresa/perfil-empre
 import { ProjectDesingComponent } from './components/project-desing/project-desing.component';
 import { DiseniosComponent } from './components/disenios/disenios.component';
 import { DisenioPublicComponent } from './components/disenio-public/disenio-public.component';
+import { DisenioAdminComponent } from './components/disenio-admin/disenio-admin.component';
 
 const routes: Routes = [
+    
     { path: '', component: HomeComponent },
     { path: 'register', component: RegisterComponent, },
     {
@@ -17,7 +19,8 @@ const routes: Routes = [
             { path: 'miPerfil', component: PerfilEmpresaComponent, },
             { path: 'Proyectos', component: ProjectDesingComponent, },
             { path: 'DiseñoPublico', component: DisenioPublicComponent, },      
-            { path: 'diseños', component: DiseniosComponent, }
+            { path: 'diseños', component: DiseniosComponent, },
+            { path: 'DiseñosAdmin', component: DisenioAdminComponent, }
         ]
     },
 ];

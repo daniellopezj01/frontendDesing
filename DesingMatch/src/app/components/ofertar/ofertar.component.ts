@@ -26,7 +26,7 @@ export class OfertarComponent implements OnInit {
   registerForm: FormGroup;
   detalle: Detalle_disenio;
   selectedFile: File;
-
+  status: String = "no disponible";
   constructor(private detalleService: DetalleService, private formBuilder: FormBuilder, public dialogRef: MatDialogRef<OfertarComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ProjectDesingComponent) {
     this.detalle = new Detalle_disenio();
@@ -44,7 +44,7 @@ export class OfertarComponent implements OnInit {
     });
     this.detalle.id_proyecto = this.data.id_proyecto;
     this.detalle.date = new Date();
-    this.detalle.status = "p";
+    this.detalle.status = this.status;
   }
 
   captureFile(event) {
@@ -56,6 +56,7 @@ export class OfertarComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
+  console.log(this.detalle.status);
     const fd = new FormData();
     fd.append('disenio', this.selectedFile, this.selectedFile.name)
     this.detalleService.saveDetailsDesingimage(fd).subscribe(res => {
