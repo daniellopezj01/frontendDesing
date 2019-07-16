@@ -80,7 +80,6 @@ export class CreateProjectComponent implements OnInit {
       if (res.responseCode == 200) {
         this.dialogRef.close();
         alert(`Proyecto Creado`);
-        // this._router.navigate([`/cliente/${this.url.replace(/['"]+/g, '')}/miPerfil`]);
       }
     },
       err => {
@@ -94,7 +93,6 @@ export class CreateProjectComponent implements OnInit {
       if (res.responseCode == 200) {
         this.dialogRef.close();
         alert(res.message);
-        // this._router.navigate([`/cliente/${this.url.replace(/['"]+/g, '')}/miPerfil`]);
       }
     },
       err => {

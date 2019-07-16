@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./disenios.component.scss']
 })
 export class DiseniosComponent implements OnInit {
-
-  constructor() { }
+  tittle: String;
+  constructor() {
+    this.tittle = "DesignMatch";
+  }
 
   ngOnInit() {
+  }
+
+  showInit(){
+    location.href = ``;
   }
 
 }

@@ -17,10 +17,21 @@
         <h5> </h5>
     </div>
     <br><br>
-
+    <div class="emptyproject" [hidden]="showprojects">
+        <mdb-card>
+            <mdb-card-body>
+                <h4> <strong> <b> Aun no hay proyectos ofertados </b></strong></h4>
+            </mdb-card-body>
+        </mdb-card>
+        <br><br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+    <br>
     <div class="proyectos" [hidden]="!showprojects" *ngFor="let item of listProject">
         <mdb-card class="text-center">
-
             <mdb-card-body>
                 <mdb-card-title>
                     <h3> {{item.nombre_proyecto}}</h3>

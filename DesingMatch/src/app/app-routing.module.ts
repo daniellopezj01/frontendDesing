@@ -1,3 +1,4 @@
+import { ContainerComponent } from './components/container/container.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
@@ -8,21 +9,25 @@ import { ProjectDesingComponent } from './components/project-desing/project-desi
 import { DiseniosComponent } from './components/disenios/disenios.component';
 import { DisenioPublicComponent } from './components/disenio-public/disenio-public.component';
 import { DisenioAdminComponent } from './components/disenio-admin/disenio-admin.component';
+import { OnePageComponent } from './components/one-page/one-page.component';
 
 const routes: Routes = [
-    
-    { path: '', component: HomeComponent },
+    { path: 'home', component: HomeComponent },
     { path: 'register', component: RegisterComponent, },
+    { path: 'notFound', component: DiseniosComponent, },
     {
-        path: 'cliente/:url', component: ClienteComponent,
+        path: ':url', component: ClienteComponent,
         children: [
+            { path: '', component: OnePageComponent, },
             { path: 'miPerfil', component: PerfilEmpresaComponent, },
             { path: 'Proyectos', component: ProjectDesingComponent, },
-            { path: 'DiseñoPublico', component: DisenioPublicComponent, },      
-            { path: 'diseños', component: DiseniosComponent, },
+            { path: 'DiseñoPublico', component: DisenioPublicComponent, }, 
             { path: 'DiseñosAdmin', component: DisenioAdminComponent, }
         ]
     },
+    { path: '', component: HomeComponent    },
+    { path: '**', component: DiseniosComponent, },
+    
 ];
 
 @NgModule({

@@ -62,6 +62,6 @@ export class ProjectDesingComponent implements OnInit {
 
   showDesing(id: number): void {
     sessionStorage.setItem('idProject', JSON.stringify(id));
-    this._router.navigate([`/cliente/${this.url.replace(/['"]+/g, '')}/DiseñoPublico`]);
+    this._router.navigate([`/${this.url.replace(/['"]+/g, '')}/DiseñoPublico`]);
   }
 }

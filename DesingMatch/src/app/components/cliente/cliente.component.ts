@@ -56,7 +56,7 @@ export class ClienteComponent implements OnInit {
         sessionStorage.setItem('url', JSON.stringify(this.empresa.url));
         sessionStorage.setItem('id', JSON.stringify(this.empresa.id_empresa));
       } else {
-        this._router.navigate(['/cliente']);
+        this._router.navigate(['/notFound']);
       }
     });
   }
@@ -64,6 +64,6 @@ export class ClienteComponent implements OnInit {
   close(): void {
     sessionStorage.setItem('showperfil', JSON.stringify(false));
     this.showPerfil = false;
-    location.href = `/cliente/${this.empresa.url.replace(/['"]+/g, '')}`;
+    location.href = `/${this.empresa.url.replace(/['"]+/g, '')}`;
   }
 }

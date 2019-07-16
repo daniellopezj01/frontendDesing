@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
         this.data.showPerfil = true;
         this.dialogRef.close([{ showPerfil: true }]);
         this.url = sessionStorage.getItem('url')
-        this._router.navigate([`/cliente/${this.url.replace(/['"]+/g, '')}/miPerfil`]);
+        this._router.navigate([`/${this.url.replace(/['"]+/g, '')}/miPerfil`]);
       } else {
         alert("datos incorrectos");
         this.cleaninput();

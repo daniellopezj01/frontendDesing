@@ -59,12 +59,13 @@ export class RegisterComponent implements OnInit {
     this.service.saveEmpresa(this.empresa).subscribe(res => {
       if (res.responseCode == 200) {
         alert(res.message);
-        const dialogRef = this.dialog.open(LoginComponent, {
-        });
+        location.href = `/${this.empresa.url.replace(/['"]+/g, '')}`;
+      //  const dialogRef = this.dialog.open(LoginComponent, {
+      //  });
     
-        dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');
-        });
+      //  dialogRef.afterClosed().subscribe(result => {
+      //    console.log('The dialog was closed');
+      //  });
       }
     },
       err => {

@@ -90,6 +90,6 @@ export class PerfilEmpresaComponent implements OnInit {
 
   showDesingAdmin(id: number): void {
     sessionStorage.setItem('idProjectadmin', JSON.stringify(id));
-    this._router.navigate([`/cliente/${this.url.replace(/['"]+/g, '')}/DiseñosAdmin`]);
+    this._router.navigate([`/${this.url.replace(/['"]+/g, '')}/DiseñosAdmin`]);
   }
 }

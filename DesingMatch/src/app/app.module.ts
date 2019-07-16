@@ -25,6 +25,7 @@ import { DiseniosComponent } from './components/disenios/disenios.component';
 import { OfertarComponent } from './components/ofertar/ofertar.component';
 import { DisenioPublicComponent } from './components/disenio-public/disenio-public.component';
 import { DisenioAdminComponent } from './components/disenio-admin/disenio-admin.component';
+import { OnePageComponent } from './components/one-page/one-page.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { DisenioAdminComponent } from './components/disenio-admin/disenio-admin.
     OfertarComponent,
     DisenioPublicComponent,
     DisenioAdminComponent,
+    OnePageComponent,
   ],
   imports: [ 
     BrowserModule,

@@ -15,15 +15,14 @@ export class ContainerComponent implements OnInit {
   tittle: String;
   env = environment;
   showPerfil: false
-
+ 
   constructor(private _router: Router, private dialog: MatDialog) {
-    this.env.show = true;
+  //  this.env.show = true;
     this.tittle = "DesignMatch";
   }
 
 
   openDialog(): void {
-    //sessionStorage.setItem('obj',JSON.stringify(object));
     const dialogRef = this.dialog.open(LoginComponent, {
     });
 
@@ -32,6 +31,7 @@ export class ContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.env.show = true;
     if (sessionStorage.getItem('showperfil')) {
       this.showPerfil = JSON.parse(sessionStorage.getItem('showperfil'));
     }
