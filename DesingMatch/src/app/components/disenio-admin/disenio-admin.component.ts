@@ -15,7 +15,8 @@ export class DisenioAdminComponent implements OnInit {
   showDesing: boolean = false;
   showinfo:boolean=  false;
   status: String = "no disponible";
-  imageProcess: String = "Proceso.JPG"
+  imageProcess: String = "Proceso.JPG";
+  inmodal:string;
   constructor(private detalleservice: DetalleService, private projectService: ProyectoService) { }
 
   ngOnInit() {
@@ -44,4 +45,7 @@ export class DisenioAdminComponent implements OnInit {
       }
     })
   }
+  showimage(disenio:string){
+    this.inmodal = disenio;
+      }
 }

@@ -21,4 +21,8 @@ export class DetalleService {
     public showDesing(id: Number): Observable<RestResponse> {
         return this.http.get<RestResponse>("http://localhost:3000/showDesing/" + id);
     }
+
+    public informationOnePage(id: Number): Observable<RestResponse> {
+        return this.http.get<RestResponse>("http://localhost:3000/InfoOnePage/" + id);
+    }
 }

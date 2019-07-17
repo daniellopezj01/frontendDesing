@@ -24,7 +24,7 @@
         <div class=" offset-md-1 col-md-5 my-5 " style="float: left">
             <mdb-card dark="true">
                 <div style="height:  250px; width:  100%;" class=" overlay waves-light" mdbWavesEffect>
-                    <img data-toggle="modal" data-target="#exampleModal" src="http://localhost:3000/loadFile/{{item.disenio}}" class="estilosImg">
+                    <img src="http://localhost:3000/loadFile/{{item.disenio}}" class="estilosImg" (click)="showimage(item.disenio)" data-toggle="modal" data-target="#exampleModal">
                 </div>
                 <mdb-card-body class="elegant-color white-text">
                     <mdb-card-title>
@@ -35,20 +35,16 @@
                         {{item.email_diseniador}} <br> {{item.fecha.slice(0, -14)}}
                     </mdb-card-text>
                 </mdb-card-body>
-            </mdb-card>
-        </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    </div>
-                    <div class="modal-body">
-                        <img src="http://localhost:3000/loadFile/{{item.disenio}}" class="estilosImg">
-                    </div>
-                    <div class="modal-footer">
+                <div class="modal fade" id="exampleModal" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <img src="http://localhost:3000/loadFile/{{inmodal}}" class="estilosImg">
+                        </div>
                     </div>
                 </div>
-            </div>
+            </mdb-card>
+
         </div>
+
     </div>
 </div>

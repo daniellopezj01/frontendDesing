@@ -10,6 +10,7 @@ import { DiseniosComponent } from './components/disenios/disenios.component';
 import { DisenioPublicComponent } from './components/disenio-public/disenio-public.component';
 import { DisenioAdminComponent } from './components/disenio-admin/disenio-admin.component';
 import { OnePageComponent } from './components/one-page/one-page.component';
+import { DitecompanyComponent } from './components/ditecompany/ditecompany.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
             { path: 'miPerfil', component: PerfilEmpresaComponent, },
             { path: 'Proyectos', component: ProjectDesingComponent, },
             { path: 'DiseñoPublico', component: DisenioPublicComponent, }, 
-            { path: 'DiseñosAdmin', component: DisenioAdminComponent, }
+            { path: 'DiseñosAdmin', component: DisenioAdminComponent, },
+            { path: 'p', component: DitecompanyComponent, }
         ]
     },
     { path: '', component: HomeComponent    },

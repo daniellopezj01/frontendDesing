@@ -5,11 +5,44 @@
 <mat-spinner class="spinner" *ngIf="!showinfo"></mat-spinner>
 <div *ngIf="showinfo" class="container">
     <div *ngIf="pageEvent">
-        <h5>Page Change Event Properties</h5>
-        <div>List length: {{pageEvent.length}}</div>
-        <div>Page index: {{pageEvent.pageIndex}}</div>
+        <table class="table table-striped" [mfData]="object" #mf="mfDataTable" [mfRowsOnPage]="10">
+            <div *ngFor="let item of mf.data">
+                <div class=" offset-md-1 col-md-5 my-5 " style="float: left">
+                    <mdb-card dark="true">
+                        <mdb-card-head class="elegant-color white-text">
+                            <mdb-card-title>
+                                <br>
+                                <h4><strong> Proyecto </strong> {{item.nombre_proyecto}} </h4>
+                            </mdb-card-title>
+                        </mdb-card-head>
+                        <div style="height:  250px; width:  100%;" class="overlay waves-light" mdbWavesEffect>
+                            <img src="http://localhost:3000/loadFile/{{item.disenio}}" class=" estilosImg">
+                        </div>
+                        <mdb-card-body class="elegant-color white-text">
+                            <mdb-card-title>
+                                <h4>{{item.nombre_diseniador}} {{item.apellido_diseniador}}</h4>
+                            </mdb-card-title>
+                            <hr class="hr-light">
+                            <mdb-card-text class="white-text">
+                                <strong> <b>Correo: </b></strong> {{item.email_diseniador}} <br> <strong> <b>fecha: </b></strong> {{item.fecha.slice(0, -14)}} <br>
+                            </mdb-card-text>
+                        </mdb-card-body>
+                    </mdb-card>
+                </div>
+            </div>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
 
-    <mat-paginator [length]="length" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="pageSizeOptions" (click)="managerInfo()" (page)="pageEvent = $event">
-    </mat-paginator>
+
 </div>

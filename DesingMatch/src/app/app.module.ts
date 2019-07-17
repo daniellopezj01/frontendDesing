@@ -26,7 +26,7 @@ import { OfertarComponent } from './components/ofertar/ofertar.component';
 import { DisenioPublicComponent } from './components/disenio-public/disenio-public.component';
 import { DisenioAdminComponent } from './components/disenio-admin/disenio-admin.component';
 import { OnePageComponent } from './components/one-page/one-page.component';
-
+import {DataTableModule} from "angular-6-datatable";
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +57,7 @@ import { OnePageComponent } from './components/one-page/one-page.component';
     LayoutModule,
     HttpClientModule,
     CommonModule,
+    DataTableModule
   ],
   entryComponents:[
     LoginComponent,CreateProjectComponent,OfertarComponent
