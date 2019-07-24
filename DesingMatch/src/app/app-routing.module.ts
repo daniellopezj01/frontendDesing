@@ -19,7 +19,7 @@ const routes: Routes = [
     {
         path: ':url', component: ClienteComponent,
         children: [
-            { path: '', component: OnePageComponent, },
+            { path: 'home', component: OnePageComponent, },
             { path: 'miPerfil', component: PerfilEmpresaComponent, },
             { path: 'Proyectos', component: ProjectDesingComponent, },
             { path: 'DiseñoPublico', component: DisenioPublicComponent, }, 
@@ -27,7 +27,7 @@ const routes: Routes = [
             { path: 'p', component: DitecompanyComponent, }
         ]
     },
-    { path: '', component: HomeComponent    },
+    { path: '', component: HomeComponent   },
     { path: '**', component: DiseniosComponent, },
     
 ];

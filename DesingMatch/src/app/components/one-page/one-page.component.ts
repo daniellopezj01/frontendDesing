@@ -8,7 +8,7 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class OnePageComponent implements OnInit {
 
-  
+
   length = 100;
   pageSize = 10;
   pageSizeOptions: number[] = [1, 5, 10];
@@ -16,7 +16,7 @@ export class OnePageComponent implements OnInit {
   pageEvent: PageEvent;
   id_empresa: number;
   object: any;
-  size:number;
+  size: number;
   show: any;
   constructor(private dservice: DetalleService) {
 
@@ -27,26 +27,30 @@ export class OnePageComponent implements OnInit {
 
   ngOnInit() {
     this.pageEvent = new PageEvent();
-
     this.pageEvent.pageIndex = 0;
-    this.size =1;
+    this.size = 1;
     this.managerInfo();
   }
 
   managerInfo() {
     if (sessionStorage.getItem('id')) {
       this.id_empresa = JSON.parse(sessionStorage.getItem('id'));
+      this.dservice.informationOnePage(this.id_empresa).subscribe(res => {
+        if (res.responseCode == 200) {
+          this.object = res.object;
+          this.length = this.object.length;
+          this.pageEvent.length = this.length;
+          this.showinfo = true;
+        } else {
+          this.showinfo = true;
+          this.length = 1;
+          this.pageEvent.length = this.length;
+        }
+      });
     }
-    this.dservice.informationOnePage(this.id_empresa).subscribe(res => {
-      if (res.responseCode == 200) {
-      this.object = res.object;
-      this.length = this.object.length;
-      this.pageEvent.length = this.length;
-      this.showinfo = true;
-    } else {
-        console.log(res.message);
-      }
-    });
+  }
 
+  validate(){
+    return sessionStorage.getItem('id');
   }
 }

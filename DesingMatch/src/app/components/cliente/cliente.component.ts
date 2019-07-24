@@ -55,6 +55,7 @@ export class ClienteComponent implements OnInit {
         sessionStorage.setItem('nombre', JSON.stringify(this.empresa.nombre_empresa));
         sessionStorage.setItem('url', JSON.stringify(this.empresa.url));
         sessionStorage.setItem('id', JSON.stringify(this.empresa.id_empresa));
+        this._router.navigate([`${this.empresa.url}/home`]);
       } else {
         this._router.navigate(['/notFound']);
       }
